@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RA Doctor</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- ACTIVITY NAMES -->
+    <string name="title_activity_add_patient">Add Patient</string>
+    <string name="title_activity_patient_info">Patient Info</string>
+    <string name="title_activity_racriteria">RA Criteria</string>
+    <string name="title_activity_disease">Disease Activity</string>
+    <string name="title_activity_das28">DAS 28</string>
+    <string name="title_activity_csdai">CDAI/SDAI</string>
+    <string name="title_activity_graphs">Graphs</string>
+    <string name="title_activity_biologics">Biologics</string>
+    <string name="title_activity_diagnosis">Diagnosis</string>
+    <string name="title_activity_drugs">Drugs</string>
+    <string name="title_activity_diagnosis_update">Update Diagnosis</string>
+    <string name="title_activity_photos_">Photos</string>
+    <!-- PATIENT FIELDS -->
+    <string name="patient_info_name">Name</string>
+    <string name="patient_info_age">Age</string>
+    <string name="patient_info_sex">Sex</string>
+    <string name="patient_info_age_of_diagnosis">Age of Diagnosis</string>
+    <string name="patient_info_age_of_onset">Age of Onset</string>
+
+    <!-- DIAGNOSIS FIELDS -->
+    <string name="label_tender">Tender Joints</string>
+    <string name="label_swollen">Swollen Joints</string>
+    <string name="label_esr">Erythrocyte Sedimentation Rate (ESR)</string>
+    <string name="label_cpr">C-Reactive Protein (CRP)</string>
+    <string name="label_rf">Rheumatoid Factor (RF)</string>
+    <string name="label_gcsf">Granulocyte Colony Stimulating Factor (G-CSF)</string>
+    <string name="label_last_updated">Last Updated: </string>
+
+    <!-- DRUGS FIELDS -->
+    <string name="label_mtx">Methotrexate (MTX)</string>
+s                <string name="label_nsaid">Non-steroidal Anti-Inflammatory Agents (NSAID)</string>
+    <string name="label_steroids">Steroids</string>
+    <string name="label_aza">Azathioprine (AZA)</string>
+    <string name="label_hcqs">Hydroxychloroquine Sulfate (HCQS)</string>
+
+    <!-- BIOLOGICS FIELDS -->
+    <string name="label_inflix">Infliximab Original</string>
+    <string name="label_inflix2">Infliximab Biosimilar</string>
+    <string name="label_ritux">Rituximab</string>
+    <string name="label_tocili">Tocilizumab</string>
+    <string name="label_etaner">Etanercept</string>
+
+    <!-- DAS28/CDAI/SDAI FIELDS -->
+    <string name="label_tjc">Tender joint count</string>
+    <string name="label_sjc">Swollen joint count</string>
+    <string name="label_pga">Patient global assessment</string>
+    <string name="label_ega">Evaluator global assessment</string>
+    <string name="label_esr2">ESR</string>
+    <string name="label_crp2">CRP</string>
+    <string name="label_das28">DAS28 Score: 0.0</string>
+    <string name="label_cdai">CDAI Score: 0.0</string>
+    <string name="label_sdai">SDAI Score: 0.0</string>
+
+    <!-- UNIT LABELS -->
+    <string name="unit_mmhr">mm/hr</string>
+    <string name="unit_mgl">mg/L</string>
+    <string name="unit_uml">U/mL</string>
+    <string name="unit_pgml">pg/ml</string>
+    <string name="unit_mgdl">mg/dl</string>
+
+    <!-- BUTTON LABELS -->
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="button_update">Update</string>
+    <string name="label_options">Options</string>
+    <string name="label_photo">Photo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="button_add_photo">Add Photo</string>
+    <string name="title_activity_zoomin_">Photo Zoom</string>
+    <string name="title_activity_update_drugs_">Update Drugs</string>
+
+</resources>

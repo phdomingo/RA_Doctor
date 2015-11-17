@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="drugsFrequencySpinner_Array">
+        <item>weekly</item>
+        <item>every two weeks</item>
+        <item>every three weeks</item>
+        <item>every month</item>
+    </string-array>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="GraphsSpinner_array">
+        <item>DAS28 - ESR </item>
+        <item>CDAI/SDAI</item>
+        <item>DAS28 + CDAI/SDAI</item>
+       <!-- <item>Diagnosis</item> -->
+    </string-array>
+</resources>

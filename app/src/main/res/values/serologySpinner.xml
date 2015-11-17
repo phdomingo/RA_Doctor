@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="serologySpinner_array">
+        <item>RF neg. and ACPA neg.</item>
+        <item>RF or ACPA &lt; 3*ULN</item>
+        <item>RF or ACPA > 3*ULN</item>
+    </string-array>
+</resources>
