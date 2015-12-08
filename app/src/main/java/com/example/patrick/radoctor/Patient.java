@@ -10,17 +10,18 @@ public class Patient {
      private int age;
      private int aod;
      private int aoo;
-
+     private int rascore;
      public Patient(){
      }
 
-     public Patient(int id, String name, String sex, int age, int aod, int aoo){
+     public Patient(int id, String name, String sex, int age, int aod, int aoo, int rascore){
           this.id = id;
           this.name = name;
           this.sex = sex;
           this.age = age;
           this.aod = aod;
           this.aoo = aoo;
+          this.rascore = rascore;
      }
      //setters
      public void setId(int id){
@@ -41,6 +42,7 @@ public class Patient {
      public void setAoo(int aoo){
           this.aoo = aoo;
      }
+     public void setRascore(int rascore){this.rascore = rascore;}
      //getters
      public int getId(){
           return id;
@@ -60,4 +62,5 @@ public class Patient {
      public int getAoo(){
           return aoo;
      }
+     public int getRascore(){return rascore;}
 }

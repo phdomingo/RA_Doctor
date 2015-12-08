@@ -8,9 +8,122 @@
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context="com.example.patrick.radoctor.PatientDemographics_Activity">
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Number of Patients "
+            android:paddingTop="10dp"
+            android:textColor="#000075"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/demoNumPatients"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of Male Patients "
+            android:paddingTop="10dp"
+            android:textColor="#000075"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/demoNumMale"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of Female Patients "
+            android:paddingTop="10dp"
+            android:textColor="#000075"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/demoNumFemale"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Average Age on Database Entry "
+            android:paddingTop="10dp"
+            android:textColor="#000075"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/demoAveAoe"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Average Age of Diagnosis "
+            android:paddingTop="10dp"
+            android:textColor="#000075"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/demoAveAod"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Average Age of Onset "
+            android:paddingTop="10dp"
+            android:textColor="#000075"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/demoAveAoo"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Average RA Critera Score on Entry "
+            android:paddingTop="10dp"
+            android:textColor="#000075"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/demoRAScore"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
+    </LinearLayout>
 
 </RelativeLayout>

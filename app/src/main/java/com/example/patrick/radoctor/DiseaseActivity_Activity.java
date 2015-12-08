@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -14,39 +15,44 @@ import java.util.Date;
 
 public class DiseaseActivity_Activity extends ActionBarActivity {
      int patient_id;
-     TextView das28, das28LastUpdate,cdai,sdai,csdaiLastUpdate;
+     TextView tender,swollen,esr,crp,rf,pga,ega,ccp, date;
      SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-     Date date;
+     Date lastUpdate;
      DBHelper db;
      @Override
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
-          setContentView(R.layout.activity_disease);
+          setContentView(R.layout.activity_disease_activity);
           patient_id = getIntent().getExtras().getInt("patient_id");
           db = new DBHelper(this);
-          das28 = (TextView)findViewById(R.id.diseaseActivitydas28Score);
-          das28LastUpdate = (TextView)findViewById(R.id.diseaseActivitydas28lastUpdate);
-          cdai = (TextView)findViewById(R.id.diseaseActivitycdaiScore);
-          sdai = (TextView)findViewById(R.id.diseaseActivitysdai8Score);
-          csdaiLastUpdate = (TextView)findViewById(R.id.diseaseActivitycsdailastUpdate);
-          DiseaseActivity_Object dao = db.getLatestDiseaseActivity(patient_id);
-          try {
-               if (dao.isHas_record_das28()) {
-                    das28.setText("DAS28 Score: " + Math.floor(dao.getDas28()*100)/100);
-                    date = formatter.parse(dao.getLastUpdatedDas28());
-                    das28LastUpdate.setText("Last Updated: " + date.toString());
+          date = (TextView) findViewById(R.id.daLastUpdated);
+          tender = (TextView) findViewById(R.id.daTender);
+          swollen = (TextView) findViewById(R.id.daSwollen);
+          rf = (TextView)findViewById(R.id.daRF);
+          esr = (TextView) findViewById(R.id.daESR);
+          crp = (TextView) findViewById(R.id.daCRP);
+          pga = (TextView) findViewById(R.id.daPGA);
+          ega = (TextView) findViewById(R.id.daEGA);
+          ccp = (TextView) findViewById(R.id.daCCP);
+          Diagnosis patient = db.getDiagnosis(patient_id,1);
+          if (patient.isHas_record()) {
+               try {
+                    lastUpdate = formatter.parse(patient.getDate());
+               } catch (Exception e) {
+                    System.out.println(e.toString());
                }
-               if (dao.isHas_record_csdai()){
-                    cdai.setText("CDAI Score: " + dao.getCdai());
-                    sdai.setText("SDAI Score: " + dao.getSdai());
-                    date = formatter.parse(dao.getLastUpdatedCSDai());
-                    csdaiLastUpdate.setText("Last Updated: " + date.toString());
-               }
-          }catch(Exception e){
-               e.toString();
+
+               date.setText("Last Updated: " + lastUpdate.toString());
+               tender.setText(patient.getTender() + " tender joints");
+               swollen.setText(patient.getSwollen() + " swollen joints");
+               esr.setText(patient.getEsr() + " mm/hr");
+               crp.setText(patient.getCrp() + " mg/L");
+               rf.setText(patient.getRf() + " U/mL");
+               ega.setText(String.valueOf(patient.getEga()));
+               pga.setText(String.valueOf(patient.getPga()));
+               ccp.setText(String.valueOf(patient.getCcp()));
           }
      }
-
 
      @Override
      public boolean onCreateOptionsMenu(Menu menu) {
@@ -73,21 +79,18 @@ public class DiseaseActivity_Activity extends ActionBarActivity {
      public void onTextViewClicked(View view){
           boolean clicked = ((TextView)view).isPressed();
           switch(view.getId()){
-               case R.id.das28Button:{
-                    if(clicked){
-                         Intent das28Screen = new Intent(DiseaseActivity_Activity.this,Das28_Activity.class);
-                         das28Screen.putExtra("patient_id",patient_id);
-                         startActivity(das28Screen);
-                         break;
-                    }
+               case R.id.viewDiseaseActivityMeasures:{
+                    Intent intent = new Intent(DiseaseActivity_Activity.this, DiseaseActivityMeasures_Activity.class);
+                    intent.putExtra("patient_id",patient_id);
+                    startActivity(intent);
+                    break;
                }
-               case R.id.cdaiSdaiButton:{
-                    if(clicked){
-                         Intent csdaiScreen = new Intent(DiseaseActivity_Activity.this,CSdai_Activity.class);
-                         csdaiScreen.putExtra("patient_id",patient_id);
-                         startActivity(csdaiScreen);
-                    }
-                         break;
+               case R.id.updateDiseaseActivity:{
+                    Intent intent = new Intent(DiseaseActivity_Activity.this, DiagnosisUpdate_Activity.class);
+                    intent.putExtra("patient_id",patient_id);
+                    intent.putExtra("source_activity",2);
+                    startActivity(intent);
+                    break;
                }
           }
      }

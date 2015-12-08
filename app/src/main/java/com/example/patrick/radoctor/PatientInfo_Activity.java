@@ -26,10 +26,10 @@ public class PatientInfo_Activity extends ActionBarActivity {
           setContentView(R.layout.activity_patient_info);
           TextView patientName = (TextView)findViewById(R.id.patientName);
           TextView patientAge = (TextView)findViewById(R.id.patientAge);
-          TextView patientSex = (TextView)findViewById(R.id.patientSex);
           TextView patientAoD = (TextView)findViewById(R.id.patientAoD);
           TextView patientAoP = (TextView)findViewById(R.id.patientAoO);
           ImageView patientPhoto = (ImageView)findViewById(R.id.patientPhoto);
+          TextView patientRAscore = (TextView)findViewById(R.id.patientRAScore);
           Intent intent = getIntent();
 
           patient_id = intent.getExtras().getInt("patient_id");
@@ -43,16 +43,18 @@ public class PatientInfo_Activity extends ActionBarActivity {
           String aod = patient.getString(patient.getColumnIndex(DBHelper.PATIENTS_AOD));
           String aoo = patient.getString(patient.getColumnIndex(DBHelper.PATIENTS_AOO));
           String photo = patient.getString(patient.getColumnIndex(DBHelper.PATIENTS_PHOTO));
+          String score = patient.getString(patient.getColumnIndex(DBHelper.PATIENTS_SCORE));
+
           if (!patient.isClosed())
           {
                patient.close();
           }
 
-          patientName.setText("Name: " + name);
+          patientName.setText("Name: " + name + " (" + sex + ")" );
           patientAge.setText("Age: "+ age);
-          patientSex.setText("Sex: "+ sex);
           patientAoD.setText("Age of Diagnosis: "+ aod);
           patientAoP.setText("Age of Onset: "+ aoo);
+          patientRAscore.setText("RA Criteria Score: " + score);
           try{
                if(!photo.equals("NULL")){
                     patientPhoto.setImageURI(Uri.fromFile(new File(photo)));
@@ -88,14 +90,7 @@ public class PatientInfo_Activity extends ActionBarActivity {
      public void onButtonClicked(View view){
           boolean clicked = ((Button)view).isPressed();
           switch(view.getId()){
-               case R.id.RACriteria:{
-                    if(clicked){
-                         Intent intent = new Intent(PatientInfo_Activity.this,RACriteria_Activity.class);
-                         intent.putExtra("patient_id",patient_id);
-                         startActivity(intent);
-                    }
-                    break;
-               }
+
                case R.id.Diagnosis:{
                     if(clicked){
                          Intent intent = new Intent(PatientInfo_Activity.this,Diagnosis_Activity.class);
@@ -114,29 +109,32 @@ public class PatientInfo_Activity extends ActionBarActivity {
                }
                case R.id.Drugs:{
                     if(clicked){
-                         if(clicked){
-                              Intent intent = new Intent(PatientInfo_Activity.this,Drugs_Activity.class);
-                              intent.putExtra("patient_id",patient_id);
-                              startActivity(intent);
-                         }
-                         break;
+                         Intent intent = new Intent(PatientInfo_Activity.this,Drugs_Activity.class);
+                         intent.putExtra("patient_id",patient_id);
+                         startActivity(intent);
+
                     }
                     break;
                }
                case R.id.Biologics:{
                     if(clicked){
-                         if(clicked){
-                              Intent intent = new Intent(PatientInfo_Activity.this,Biologics_Activity.class);
-                              intent.putExtra("patient_id",patient_id);
-                              startActivity(intent);
-                         }
-                         break;
+                         Intent intent = new Intent(PatientInfo_Activity.this,Questionnaire_Activity.class);
+                         intent.putExtra("patient_id",patient_id);
+                         startActivity(intent);
                     }
                     break;
                }
                case R.id.Graphs:{
                     if(clicked){
                          Intent intent = new Intent(PatientInfo_Activity.this,Graphs_Activity.class);
+                         intent.putExtra("patient_id",patient_id);
+                         startActivity(intent);
+                    }
+                    break;
+               }
+               case R.id.Photos:{
+                    if(clicked){
+                         Intent intent = new Intent(PatientInfo_Activity.this,Photos_Activity.class);
                          intent.putExtra("patient_id",patient_id);
                          startActivity(intent);
                     }

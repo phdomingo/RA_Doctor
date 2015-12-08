@@ -38,31 +38,37 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/patient_info_name"
-                    android:id="@+id/patientName"/>
+                    android:id="@+id/patientName"
+                    android:textColor="#000075"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/patient_info_age"
-                    android:id="@+id/patientAge"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/patient_info_sex"
-                    android:id="@+id/patientSex"/>
+                    android:id="@+id/patientAge"
+                    android:textColor="#000075"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/patient_info_age_of_diagnosis"
-                    android:id="@+id/patientAoD"/>
+                    android:id="@+id/patientAoD"
+                    android:textColor="#000075"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/patient_info_age_of_onset"
-                    android:id="@+id/patientAoO"/>
+                    android:id="@+id/patientAoO"
+                    android:textColor="#000075"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RA Criteria Score"
+                    android:id="@+id/patientRAScore"
+                    android:textColor="#000075"/>
+
             </LinearLayout>
         </LinearLayout>
 
@@ -79,13 +85,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp">
 
-                <Button
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_activity_racriteria"
-                    android:id="@+id/RACriteria"
-                    android:layout_gravity="center_horizontal"
-                    android:onClick = "onButtonClicked"/>
+
 
                 <Button
                     android:layout_width="150dp"
@@ -126,6 +126,13 @@
                     android:id="@+id/Graphs"
                     android:layout_gravity="center_horizontal"
                     android:onClick = "onButtonClicked"/>
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_activity_photos_"
+                    android:id="@+id/Photos"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onButtonClicked"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

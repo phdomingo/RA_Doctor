@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/label_last_updated"
+            android:text="Date Diagnosed: "
             android:id="@+id/diagnosisLastUpdated"
             android:textColor="#000075"
             android:textSize="10sp"/>
@@ -37,7 +37,8 @@
             android:text="0 tender joints"
             android:id="@+id/TenderTextView"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,7 +54,8 @@
             android:text="0 swollen joints"
             android:id="@+id/SwollenTextView"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,12 +71,13 @@
             android:text="0 mm/hr"
             android:id="@+id/ESRTextView"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_cpr"
+            android:text="@string/label_crp"
             android:id="@+id/labelCRP"
             android:textColor="#000075"
             android:textSize="15sp"/>
@@ -85,7 +88,8 @@
             android:text="0 mg/L"
             android:id="@+id/CRPTextView"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,36 +105,62 @@
             android:text="0 U/mL"
             android:id="@+id/RFTextView"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_gcsf"
-            android:id="@+id/labelGCSF"
+            android:text="Patient Global Assessment (PGA)"
             android:textColor="#000075"
             android:textSize="15sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0 pg/mL"
-            android:id="@+id/GCSFTextView"
+            android:text="0"
+            android:id="@+id/PGATextView"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Evaluator Global Assessment (EGA)"
+            android:textColor="#000075"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/EGATextView"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cyclic Citrullinated Peptide (CCP)"
+            android:textColor="#000075"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/CCPTextView"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#ff000000"/>
+
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_activity_photos_"
-            android:id="@+id/photosButtonDiagnosis"
-            android:layout_gravity="center_horizontal"
-            android:onClick="onButtonClicked"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_update"
+            android:text="Add Diagnosis"
             android:id="@+id/updateButtonDiagnosis"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"

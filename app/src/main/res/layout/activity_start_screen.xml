@@ -9,7 +9,7 @@
                 tools:context=".StartScreen">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/layoutMenu"
@@ -19,18 +19,21 @@
         android:layout_alignParentStart="true">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Search Patient"
-            android:id="@+id/searchPatientButton"
-            android:layout_gravity="center_horizontal"/>
+            android:text="Patient Statistics"
+            android:id="@+id/patientStatisticsButton"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"
+            />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Add Patient"
             android:id="@+id/addPatientButton"
-            />
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"/>
 
     </LinearLayout>
     <LinearLayout

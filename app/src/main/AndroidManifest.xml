@@ -40,16 +40,6 @@
                 android:value=".StartScreen_Activity" />
         </activity>
         <activity
-            android:name=".RACriteria_Activity"
-            android:label="@string/title_activity_racriteria"
-            android:launchMode="singleTop"
-            android:parentActivityName=".PatientInfo_Activity"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PatientInfo_Activity" />
-        </activity>
-        <activity
             android:name=".DiseaseActivity_Activity"
             android:label="@string/title_activity_disease"
             android:launchMode="singleTop"
@@ -58,24 +48,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PatientInfo_Activity" />
-        </activity>
-        <activity
-            android:name=".Das28_Activity"
-            android:label="@string/title_activity_das28"
-            android:parentActivityName=".DiseaseActivity_Activity"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".DiseaseActivity_Activity" />
-        </activity>
-        <activity
-            android:name=".CSdai_Activity"
-            android:label="@string/title_activity_csdai"
-            android:parentActivityName=".DiseaseActivity_Activity"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".DiseaseActivity_Activity" />
         </activity>
         <activity
             android:name=".Diagnosis_Activity"
@@ -141,7 +113,7 @@
             android:label="@string/title_activity_zoomin_"
             android:launchMode="singleTop"
             android:parentActivityName=".Photos_Activity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.patrick.radoctor.Photos_Activity" />
@@ -149,12 +121,60 @@
         <activity
             android:name=".UpdateDrugs_Activity"
             android:label="@string/title_activity_update_drugs_"
-            android:parentActivityName=".Drugs_Activity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait">
+            android:parentActivityName=".Drugs_Activity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.patrick.radoctor.Drugs_Activity" />
+        </activity>
+        <activity
+            android:name=".DiseaseActivityMeasures_Activity"
+            android:label="@string/title_activity_disease_activity_measures_"
+            android:parentActivityName=".DiseaseActivity_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.patrick.radoctor.DiseaseActivity_Activity" />
+        </activity>
+        <activity
+            android:name=".UpdateBiologic_Activity"
+            android:label="@string/title_activity_update_biologic_"
+            android:parentActivityName=".Biologics_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.patrick.radoctor.Biologics_Activity" />
+        </activity>
+        <activity
+            android:name=".Questionnaire_Activity"
+            android:label="@string/title_activity_questionnaire_"
+            android:parentActivityName=".PatientInfo_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.patrick.radoctor.PatientInfo_Activity" />
+        </activity>
+        <activity
+            android:name=".PatientStatistics_Activity"
+            android:label="@string/title_activity_patient_statistics_"
+            android:parentActivityName=".StartScreen_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.patrick.radoctor.StartScreen_Activity" />
+        </activity>
+        <activity
+            android:name=".PatientDemographics_Activity"
+            android:label="@string/title_activity_patient_demographics_"
+            android:parentActivityName=".PatientStatistics_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.patrick.radoctor.PatientStatistics_Activity" />
+        </activity>
+        <activity
+            android:name=".PatientDiagnosisStatistics"
+            android:label="@string/title_activity_patient_diagnosis_statistics"
+            android:parentActivityName=".PatientStatistics_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.patrick.radoctor.PatientStatistics_Activity" />
         </activity>
     </application>
 

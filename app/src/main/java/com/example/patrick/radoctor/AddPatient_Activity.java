@@ -17,33 +17,88 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class AddPatient_Activity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
-     EditText nameEditText;
-     EditText ageEditText;
-     EditText aodEditText;
-     EditText aooEditText;
-     Spinner sexSpinner;
+     EditText nameEditText, ageEditText, aodEditText, aooEditText;
+     Spinner sexSpinner, joint, rf, acpa, duration, crp, esr;
+     TextView raLabel;
      ImageButton ib;
+
    //  EditText aooEditText;
 
-     String name;
-     String sex = "Male";
-     int age;
-     int aod;
-     int aoo;
+     String name, sex = "Male", path = "NULL", ra = "Rheumatoid Arthritis Criteria (Current Score = ";
+     int age, aod, aoo;
+     int serologyScore = 0, durationScore = 0, jointScore = 0, arpScore = 0;
+     int ra_score = 0;
      private int PICK_IMAGE_REQUEST = 1;
-     String path = "NULL";
      DBHelper db;
 
 
 
      @Override
-     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
           Spinner spinner = (Spinner)parent;
-          sex = spinner.getItemAtPosition(position).toString();
+          parent.getItemAtPosition(pos);
+          int parent_id = spinner.getId();
+          if(parent_id==R.id.sexSpinner)
+               sex = spinner.getItemAtPosition(pos).toString();
+          if(parent_id==joint.getId()){
+               if (pos == 0)
+                    jointScore = 0;
+               else if (pos == 1)
+                    jointScore = 1;
+               else if (pos == 2)
+                    jointScore = 2;
+               else if (pos==3)
+                    jointScore = 3;
+               else jointScore = 5;
+          }
+          else if(parent_id==duration.getId()){
+               if (pos == 0)
+                    durationScore = 0;
+               else durationScore = 1;
+          }
+          else if(parent_id == rf.getId()){
+               int score_acpa = acpa.getSelectedItemPosition();
+               if(pos == 2)
+                    serologyScore = 3;
+               else if(score_acpa == 2)
+                    serologyScore = 3;
+               else if(pos == 1)
+                    serologyScore = 2;
+               else if(score_acpa == 1)
+                    serologyScore = 2;
+               else serologyScore = 0;
+          }
+          else if(parent_id == acpa.getId()){
+               int score_rf = rf.getSelectedItemPosition();
+               if(pos == 2)
+                    serologyScore = 3;
+               else if(score_rf == 2)
+                    serologyScore = 3;
+               else if(pos == 1)
+                    serologyScore = 2;
+               else if(score_rf == 1)
+                    serologyScore = 2;
+               else serologyScore = 0;
+          }
+          else if(parent_id == crp.getId()){
+               int score_esr = esr.getSelectedItemPosition();
+               if(pos == 0 && score_esr == 0)
+                    arpScore = 0;
+               else arpScore = 1;
+          }
+          else if(parent_id == esr.getId()){
+               int score_crp = crp.getSelectedItemPosition();
+               if(pos == 0 && score_crp == 0)
+                    arpScore = 0;
+               else arpScore = 1;
+          }
+          ra_score = jointScore+serologyScore+durationScore+arpScore;
+          raLabel.setText(ra + ra_score + ")");
      }
 
      @Override
@@ -61,13 +116,51 @@ public class AddPatient_Activity extends ActionBarActivity implements AdapterVie
           aodEditText = (EditText)findViewById(R.id.aodEditText);
           aooEditText = (EditText)findViewById(R.id.aooEditText);
           sexSpinner = (Spinner)findViewById(R.id.sexSpinner);
+     //     ib = (ImageButton)findViewById(R.id.addImage);
+          joint = (Spinner)findViewById(R.id.spinnerJoints);
+          rf = (Spinner)findViewById(R.id.spinnerRF);
+          acpa = (Spinner)findViewById(R.id.spinnerAcpa);
+          duration = (Spinner)findViewById(R.id.spinnerDuration);
+          esr = (Spinner)findViewById(R.id.spinnerEsr);
+          crp = (Spinner)findViewById(R.id.spinnerCrp);
+          raLabel = (TextView)findViewById(R.id.RACriteriaLabel);
+          setSexSpinner();
+          setRASpinner();
+     }
+
+     private void setRASpinner(){
+          ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.jointSpinner_array,android.R.layout.simple_spinner_item);
+          ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,R.array.rfSpinner_array,android.R.layout.simple_spinner_item);
+          ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,R.array.acpaSpinner_array,android.R.layout.simple_spinner_item);
+          ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this,R.array.durationSpinner_array,android.R.layout.simple_spinner_item);
+          ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(this,R.array.esrSpinner_array,android.R.layout.simple_spinner_item);
+          ArrayAdapter<CharSequence> adapter6 = ArrayAdapter.createFromResource(this,R.array.crpSpinner_array,android.R.layout.simple_spinner_item);
+          adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+          adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+          adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+          adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+          adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+          adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+          joint.setAdapter(adapter1);
+          rf.setAdapter(adapter2);
+          acpa.setAdapter(adapter3);
+          duration.setAdapter(adapter4);
+          esr.setAdapter(adapter5);
+          crp.setAdapter(adapter6);
+          joint.setOnItemSelectedListener(this);
+          rf.setOnItemSelectedListener(this);
+          acpa.setOnItemSelectedListener(this);
+          duration.setOnItemSelectedListener(this);
+          esr.setOnItemSelectedListener(this);
+          crp.setOnItemSelectedListener(this);
+     }
+
+     private void setSexSpinner(){
           ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.sexSpinner_array,android.R.layout.simple_spinner_item);
           adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
           sexSpinner.setAdapter(adapter1);
           sexSpinner.setOnItemSelectedListener(this);
-          ib = (ImageButton)findViewById(R.id.addImage);
      }
-
 
      @Override
      public boolean onCreateOptionsMenu(Menu menu) {
@@ -96,22 +189,40 @@ public class AddPatient_Activity extends ActionBarActivity implements AdapterVie
           boolean clicked = view.isPressed();
           switch(view.getId()){
                case R.id.saveButtonAddPatient:{
-                    if(clicked) openPopup();
+                    if(ra_score < 6) openErrMess(5);
+                    else openPopup();
                     break;
                }
                case R.id.cancelButtonAddPatient: {
                     if (clicked) startActivity(intent);
                     break;
                }
-               case R.id.addImage:{
+     /*          case R.id.addImage:{
                     if(clicked){
                          Intent intent2 = new Intent();
                          intent2.setType("image/*");
                          intent2.setAction(Intent.ACTION_GET_CONTENT);
                          startActivityForResult(Intent.createChooser(intent2, "Select Picture"), PICK_IMAGE_REQUEST);
                     }
-               }
+               } */
           }
+     }
+
+     private void openErrMess(int err_num) {
+          final AlertDialog.Builder popupbd = new AlertDialog.Builder(this);
+          if(err_num == 1) popupbd.setTitle("Invalid input! Age of diagnosis is greater than current age");
+          else if(err_num==2) popupbd.setTitle("Invalid input! Age of onset is greater than current age");
+          else if(err_num==3) popupbd.setTitle("Invalid input! Age of onset is greater than age of diagnosis");
+          else if(err_num==4) popupbd.setTitle("Invalid input!");
+          else if(err_num==5) popupbd.setTitle("Error! RA Criteria is less than 6! Not classified as RA!");
+          else popupbd.setTitle("Something bad happened =( Try saving again");
+          popupbd.setCancelable(true);
+          popupbd.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+               public void onClick(DialogInterface dialog, int data) {
+               }
+          });
+          AlertDialog popup = popupbd.create();
+          popup.show();
      }
 
      @Override
@@ -154,22 +265,24 @@ public class AddPatient_Activity extends ActionBarActivity implements AdapterVie
                          aod = Integer.parseInt(aodEditText.getText().toString());
                          aoo = Integer.parseInt(aooEditText.getText().toString());
                          if (age < aod)
-                              Toast.makeText(getApplicationContext(), "Invalid input! Age of diagnosis is greater than current age", Toast.LENGTH_SHORT).show();
+                              openErrMess(1);
+                              //Toast.makeText(getApplicationContext(), "Invalid input! Age of diagnosis is greater than current age", Toast.LENGTH_SHORT).show();
                          else if (age < aoo)
-                              Toast.makeText(getApplicationContext(), "Invalid input! Age of onset is greater than current age", Toast.LENGTH_SHORT).show();
+                              openErrMess(2);
+                            //  Toast.makeText(getApplicationContext(), "Invalid input! Age of onset is greater than current age", Toast.LENGTH_SHORT).show();
                          else if (aod < aoo)
-                              Toast.makeText(getApplicationContext(), "Invalid input! Age of onset is greater than age of diagnosis", Toast.LENGTH_SHORT).show();
-                         else if (db.insertPatient(name, age, sex, aod, aoo,path)) {
+                              openErrMess(3);
+                            //  Toast.makeText(getApplicationContext(), "Invalid input! Age of onset is greater than age of diagnosis", Toast.LENGTH_SHORT).show();
+                         else if (db.insertPatient(name, age, sex, aod, aoo,path, ra_score)) {
                               Toast.makeText(getApplicationContext(), "Successfully Saved!", Toast.LENGTH_SHORT).show();
-                              nameEditText.setText("");
-                              ageEditText.setText("");
-                              aodEditText.setText("");
-                              aooEditText.setText("");
-                              ib.setImageDrawable(null);
+                              Intent intent = new Intent(AddPatient_Activity.this, StartScreen_Activity.class);
+                              startActivity(intent);
+                          //    ib.setImageDrawable(null);
                          } else
-                              Toast.makeText(getApplicationContext(), "Something Bad Happened =( Try saving again", Toast.LENGTH_SHORT).show();
+                             openErrMess(6);
                     }catch(Exception e){
-                         Toast.makeText(getApplicationContext(), "Invalid input!", Toast.LENGTH_SHORT).show();
+                         openErrMess(4);
+                       //  Toast.makeText(getApplicationContext(), "Invalid input!", Toast.LENGTH_SHORT).show();
                     }
                }
           });

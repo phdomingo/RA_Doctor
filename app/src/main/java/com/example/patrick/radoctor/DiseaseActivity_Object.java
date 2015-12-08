@@ -5,13 +5,12 @@ package com.example.patrick.radoctor;
  */
 public class DiseaseActivity_Object {
 
-     private String lastUpdatedDas28;
-     private String lastUpdatedCSDai;
-     private Double das28;
+     private String lastUpdated;
+     private Double das28esr;
+     private Double das28crp;
      private Double cdai;
      private Double sdai;
-     private Boolean has_record_das28 = false;
-     private Boolean has_record_csdai = false;
+     private Boolean has_record = false;
 
      public DiseaseActivity_Object(){
 
@@ -25,48 +24,38 @@ public class DiseaseActivity_Object {
           this.sdai = sdai;
      }
 
-     public void setDas28(Double das28) {
-          this.das28 = das28;
+     public void setDas28esr(Double das28esr) {
+          this.das28esr = das28esr;
      }
 
-     public void setHas_record_csdai(Boolean has_record_csdai) {
-          this.has_record_csdai = has_record_csdai;
+     public void setDas28crp(Double das28crp){this.das28crp = das28crp;}
+
+     public void setHas_record(Boolean has_record){
+          this.has_record = has_record;
      }
 
-     public void setHas_record_das28(Boolean has_record_das28) {
-          this.has_record_das28 = has_record_das28;
-     }
-
-     public void setLastUpdatedCSDai(String lastUpdatedCSDai) {
-          this.lastUpdatedCSDai = lastUpdatedCSDai;
-     }
-
-     public void setLastUpdatedDas28(String lastUpdatedDas28) {
-          this.lastUpdatedDas28 = lastUpdatedDas28;
+     public void setLastUpdated(String lastUpdated) {
+          this.lastUpdated = lastUpdated;
      }
 
 
 
-     public String getLastUpdatedDas28(){
-          return lastUpdatedDas28;
+
+     public String getLastUpdated(){
+          return lastUpdated;
      }
-     public String getLastUpdatedCSDai(){
-          return lastUpdatedCSDai;
+     public Double getDas28esr(){
+          return das28esr;
      }
-     public Double getDas28(){
-          return das28;
-     }
+     public Double getDas28crp() { return das28crp;}
      public Double getCdai(){
           return cdai;
      }
      public Double getSdai(){
           return sdai;
      }
-     public Boolean isHas_record_das28(){
-          return has_record_das28;
-     }
-     public Boolean isHas_record_csdai(){
-          return has_record_csdai;
+     public Boolean isHas_record(){
+          return has_record;
      }
 
 }

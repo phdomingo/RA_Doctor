@@ -1,6 +1,9 @@
 package com.example.patrick.radoctor;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,9 +25,7 @@ public class StartScreen_Activity extends ActionBarActivity {
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_start_screen);
-
           db = new DBHelper(this);
-          Button addPatient = (Button)findViewById(R.id.addPatientButton);
           obj = (ListView)findViewById(R.id.listViewStartScreen);
 
           ArrayList<String> arrayList = db.getAllPatients();
@@ -41,14 +42,6 @@ public class StartScreen_Activity extends ActionBarActivity {
                     startActivity(intent);
                }
           });
-          addPatient.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                    Intent intent = new Intent(StartScreen_Activity.this, AddPatient_Activity.class);
-                    startActivity(intent);
-               }
-          });
-
      }
 
 
@@ -76,10 +69,13 @@ public class StartScreen_Activity extends ActionBarActivity {
           }
           return super.onOptionsItemSelected(item);
      }
+
+     public void onClick(View view){
+          Intent intent;
+          if(view.getId() == R.id.addPatientButton)
+               intent = new Intent(StartScreen_Activity.this,AddPatient_Activity.class);
+          else
+               intent = new Intent(StartScreen_Activity.this,PatientStatistics_Activity.class);
+          startActivity(intent);
+     }
 }
-
-/* FOR FUTURE USE
-     ArrayList<Patient> arrayList = db.getAllPatients();
-     PatientCustomListAdapter arrayAdapter = new PatientCustomListAdapter(this,arrayList);
-
- */

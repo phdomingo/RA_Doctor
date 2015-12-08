@@ -1,3 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="acpaSpinner_array">
+        <item>ACPA negative</item>
+        <item>ACPA positive &lt; 3*ULN </item>
+        <item>ACPA positive > 3*ULN </item>
+    </string-array>
+
+    <string-array name="rfSpinner_array">
+        <item>RF negative</item>
+        <item>RF positive &lt; 3*ULN </item>
+        <item>RF positive > 3*ULN </item>
+    </string-array>
+
+    <string-array name="esrSpinner_array">
+        <item>ESR normal</item>
+        <item>ESR abnormal</item>
+    </string-array>
+
+    <string-array name="crpSpinner_array">
+        <item>CRP normal</item>
+        <item>CRP abnormal</item>
+    </string-array>
+
+    <string-array name="durationSpinner_array">
+        <item>Less than 6 weeks</item>
+        <item>6 weeks or longer</item>
+    </string-array>
+
+    <string-array name="jointSpinner_array">
+        <item>1 large joint</item>
+        <item>2-10 large joints</item>
+        <item>1-3 small joints (with or without large joints)</item>
+        <item>4-10 small joints (with or without large joints)</item>
+        <item>> 10 joints (at least 1 small joint)</item>
+    </string-array>
+
 </resources>

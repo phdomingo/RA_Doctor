@@ -14,6 +14,7 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -23,147 +24,8 @@ public class Graphs_Activity extends ActionBarActivity {
      GraphView graph2;
      GraphView graph3;
      GraphView graph4;
-     ListHolders das28;
-     ListHolders csdai;
-     ListHolders esr_crp;
      DBHelper db;
      SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-
-     private void printDAS28GRAPH(){
-          das28 = db.getAllDas28(patient_id);
-          ArrayList<String> dates = das28.getDates();
-          ArrayList<Double> scores = das28.getDas28Scores();
-          int size = dates.size();
-          DataPoint[] points = new DataPoint[size];
-          Date firstDate;
-          Date lastDate;
-
-          try {
-               firstDate = formatter.parse(dates.get(0));
-               lastDate = formatter.parse(dates.get(size - 1));
-               Date date = new Date();
-               for(int i = 0; i < dates.size();i++) {
-                    date = formatter.parse(dates.get(i));
-                    DataPoint temp = new DataPoint(date,scores.get(i));
-                    points[i] = temp;
-               }
-               LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
-               graph.addSeries(series);
-               graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
-               graph.getGridLabelRenderer().setNumHorizontalLabels(3);
-               graph.getViewport().setMinX(firstDate.getTime());
-               graph.getViewport().setMaxX(lastDate.getTime());
-               graph.getViewport().setXAxisBoundsManual(true);
-               graph.getViewport().setMinY(0);
-               graph.getViewport().setMaxY(10);
-               graph.getViewport().setYAxisBoundsManual(true);
-
-          }catch(Exception e){
-               System.out.println(e.toString());
-          }
-     }
-
-     private void printCSDAIGRAPH() {
-          csdai = db.getAllCSdai(patient_id);
-          ArrayList<String> dates = csdai.getDates();
-          ArrayList<Double> cdai_scores = csdai.getCdaiScores();
-          ArrayList<Double> sdai_scores = csdai.getSdaiScores();
-          int size = dates.size();
-          DataPoint[] points = new DataPoint[size];
-          DataPoint[] points2 = new DataPoint[size];
-          Date firstDate;
-          Date lastDate;
-          try{
-               firstDate = formatter.parse(dates.get(0));
-               lastDate = formatter.parse(dates.get(size - 1));
-               Date date;
-               for(int i = 0; i < dates.size();i++) {
-                    date = formatter.parse(dates.get(i));
-                    DataPoint temp = new DataPoint(date,cdai_scores.get(i));
-                    DataPoint temp2 = new DataPoint(date,sdai_scores.get(i));
-                    points[i] = temp;
-                    points2[i] = temp2;
-               }
-               LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
-               LineGraphSeries<DataPoint> series2 = new LineGraphSeries<>(points2);
-               series2.setColor(Color.parseColor("#ff0000"));
-               graph2.addSeries(series);
-               graph2.addSeries(series2);
-               graph2.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
-               graph2.getGridLabelRenderer().setNumHorizontalLabels(3);
-               graph2.getViewport().setMinX(firstDate.getTime());
-               graph2.getViewport().setMaxX(lastDate.getTime());
-               graph2.getViewport().setXAxisBoundsManual(true);
-               graph2.getViewport().setMinY(0);
-              // graph2.getViewport().setMaxY(10);
-               graph2.getViewport().setYAxisBoundsManual(true);
-          }catch(Exception e){
-               System.out.println(e.toString());
-          }
-     }
-
-     private void printESRGRAPH(){
-          esr_crp = db.getEsr(patient_id);
-          ArrayList<String> dates = esr_crp.getDates();
-          ArrayList<Double> esr = esr_crp.getEsr_crp();
-          int size = dates.size();
-          DataPoint[] points = new DataPoint[size];
-          Date firstDate;
-          Date lastDate;
-          try {
-               firstDate = formatter.parse(dates.get(0));
-               lastDate = formatter.parse(dates.get(size - 1));
-               Date date;
-               for(int i = 0; i < dates.size();i++) {
-                    date = formatter.parse(dates.get(i));
-                    DataPoint temp = new DataPoint(date,esr.get(i));
-                    points[i] = temp;
-               }
-               LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
-               graph3.addSeries(series);
-               graph3.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
-               graph3.getGridLabelRenderer().setNumHorizontalLabels(3);
-               graph3.getViewport().setMinX(firstDate.getTime());
-               graph3.getViewport().setMaxX(lastDate.getTime());
-               graph3.getViewport().setXAxisBoundsManual(true);
-               graph3.getViewport().setMinY(0);
-               graph3.getViewport().setYAxisBoundsManual(true);
-          }catch(Exception e){
-               System.out.println(e.toString());
-          }
-     }
-
-     private void printCRPGRAPH(){
-          esr_crp = db.getCrp(patient_id);
-          ArrayList<String> dates = esr_crp.getDates();
-          ArrayList<Double> crp = esr_crp.getEsr_crp();
-          int size = dates.size();
-          System.out.println("CRP SIZE: " + size);
-          DataPoint[] points = new DataPoint[size];
-          Date firstDate;
-          Date lastDate;
-          try {
-               firstDate = formatter.parse(dates.get(0));
-               lastDate = formatter.parse(dates.get(size - 1));
-               Date date;
-               for(int i = 0; i < dates.size();i++) {
-                    date = formatter.parse(dates.get(i));
-                    DataPoint temp = new DataPoint(date,crp.get(i));
-                    points[i] = temp;
-               }
-               LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
-               graph4.addSeries(series);
-               graph4.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
-               graph4.getGridLabelRenderer().setNumHorizontalLabels(3);
-               graph4.getViewport().setMinX(firstDate.getTime());
-               graph4.getViewport().setMaxX(lastDate.getTime());
-               graph4.getViewport().setXAxisBoundsManual(true);
-               graph4.getViewport().setMinY(0);
-               graph4.getViewport().setYAxisBoundsManual(true);
-          }catch(Exception e){
-               System.out.println(e.toString());
-          }
-     }
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
@@ -176,10 +38,85 @@ public class Graphs_Activity extends ActionBarActivity {
           graph3 = (GraphView) findViewById(R.id.graph3);
           graph4 = (GraphView) findViewById(R.id.graph4);
           db = new DBHelper(this);
-          printDAS28GRAPH();
-          printCSDAIGRAPH();
-          printESRGRAPH();
-          printCRPGRAPH();
+     //     db.produceDummy(5);
+          printGraphs();
+     }
+
+     private void printGraphs() {
+          ListHolders lh = db.getAllScores(patient_id);
+          ArrayList<String> dates;
+          ArrayList<Double> temp_score;
+          String title;
+          GraphView temp_graph;
+          dates = lh.getDates();
+          Date firstDate, lastDate;
+          int size = dates.size();
+          int max_y;
+          double remission;
+          if(size > 0) {
+               for (int i = 0; i < 4; i++) {
+                    if (i == 0) {
+                         temp_score = lh.getDas28esr();
+                         temp_graph = graph;
+                         title = "DAS28 - ESR";
+                         max_y = 10;
+                         remission = 2.6;
+                    } else if (i == 1) {
+                         temp_score = lh.getDas28crp();
+                         temp_graph = graph2;
+                         title = "DAS28 - CRP";
+                         max_y = 10;
+                         remission = 2.6;
+                    } else if (i == 2) {
+                         temp_score = lh.getSdai();
+                         temp_graph = graph3;
+                         title = "SDAI";
+                         max_y = 100;
+                         remission = 3.3;
+                    } else {
+                         temp_score = lh.getCdai();
+                         temp_graph = graph4;
+                         title = "CDAI";
+                         max_y = 100;
+                         remission = 2.8;
+                    }
+                    DataPoint[] points = new DataPoint[size];
+                    DataPoint[] points2 = new DataPoint[size];
+                    try {
+                         firstDate = formatter.parse(dates.get(0));
+                         lastDate = formatter.parse(dates.get(size - 1));
+                         Date date;
+
+                         for(int j = 0; j < size; j++){
+                              date = formatter.parse(dates.get(j));
+                              DataPoint temp = new DataPoint(date,temp_score.get(j));
+                              DataPoint temp2 = new DataPoint(date,  remission);
+                              points[j] = temp;
+                              points2[j] = temp2;
+                         }
+                         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
+                         LineGraphSeries<DataPoint> series2 = new LineGraphSeries<>(points2);
+                         series2.setColor(Color.parseColor("#FF0000"));
+                         series2.setThickness(5);
+                         series.setDrawDataPoints(true);
+                         series.setDataPointsRadius(3);
+                         temp_graph.addSeries(series);
+                         temp_graph.addSeries(series2);
+                         temp_graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
+                         temp_graph.getGridLabelRenderer().setNumHorizontalLabels(3);
+                         temp_graph.getViewport().setXAxisBoundsManual(true);
+                         temp_graph.getViewport().setMinX(firstDate.getTime());
+                         temp_graph.getViewport().setMaxX(lastDate.getTime());
+                         temp_graph.getViewport().setYAxisBoundsManual(true);
+                         temp_graph.getViewport().setMinY(0);
+                         temp_graph.getViewport().setMaxY(max_y);
+                         temp_graph.setTitle(title);
+                    } catch (Exception e) {
+                         System.out.println(e.toString());
+                    }
+               }
+          }
+
      }
 
      @Override

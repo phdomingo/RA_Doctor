@@ -8,222 +8,246 @@
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context="com.example.patrick.radoctor.Drugs_Activity">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        android:clickable="false"
+        android:fillViewport="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+             >
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:textSize="15sp"
-            android:textColor="#000075"
-            android:text="@string/label_mtx"
-            android:id="@+id/labelMtx"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/drugsMtxLayout"
+                android:clickable="true"
+                android:onClick="onClick">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Admission: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dose: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Frequency: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Valid Until: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:textSize="15sp"
+                    android:textColor="#000075"
+                    android:text="@string/label_mtx"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Last Updated: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Admission: "
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:id="@+id/admMtx"
+                    android:textColor="#ff000000"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="#000075"
-            android:text="@string/label_nsaid"
-            android:id="@+id/labelNsaid"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dose: "
+                    android:paddingTop="5dp"
+                    android:id="@+id/doseMtx"
+                    android:textColor="#ff000000"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Admission: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dose: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Frequency: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Valid Until: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last Updated: "
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:id="@+id/luMtx"
+                    android:textColor="#ff000000"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Last Updated: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:id="@+id/drugsAzaLayout"
+            android:clickable="true"
+            android:onClick="onClick">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#000075"
+                android:text="@string/label_aza"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admission: "
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:id="@+id/admAza"
+                android:textColor="#ff000000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dose: "
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:id="@+id/doseAza"
+                android:textColor="#ff000000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Updated: "
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:id="@+id/luAza"
+                android:textColor="#ff000000"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/drugsHCQSLayout"
+            android:clickable="true"
+            android:onClick="onClick">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#000075"
+                android:text="@string/label_hcqs"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admission: "
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:id="@+id/admHcqs"
+                android:textColor="#ff000000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dose: "
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:id="@+id/doseHcqs"
+                android:textColor="#ff000000"/>
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Updated: "
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:id="@+id/luHcqs"
+                android:textColor="#ff000000"/>
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="#000075"
-            android:text="@string/label_aza"
-            android:id="@+id/labelAza"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Admission: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dose: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Frequency: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Valid Until: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:clickable="true"
+            android:onClick="onClick">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Last Updated: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#000075"
+                android:text="@string/label_steroids"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="#000075"
-            android:text="@string/label_hcqs"
-            android:id="@+id/labelHCQS"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/drugsSterPredLayout"
+                android:clickable="true"
+                android:onClick="onClick">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Admission: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dose: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Frequency: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Valid Until: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prednisone"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Last Updated: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="      Admission: "
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:id="@+id/admSterPred"
+                    android:textColor="#ff000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="      Dose: "
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:id="@+id/doseSterPred"
+                    android:textColor="#ff000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="      Last Updated: "
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:id="@+id/luSterPred"
+                    android:textColor="#ff000000"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="#000075"
-            android:text="@string/label_steroids"
-            android:id="@+id/labelSteroids"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/SteroidsTextView"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Admission: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dose: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Frequency: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Valid Until: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/drugsSterMethLayout"
+                android:clickable="true"
+                android:onClick="onClick">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Last Updated: "
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Methylprednisolone"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="      Admission: "
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:id="@+id/admSterMeth"
+                    android:textColor="#ff000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="      Dose: "
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:id="@+id/doseSterMeth"
+                    android:textColor="#ff000000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="      Last Updated: "
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:id="@+id/luSterMeth"
+                    android:textColor="#ff000000"/>
+          </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>

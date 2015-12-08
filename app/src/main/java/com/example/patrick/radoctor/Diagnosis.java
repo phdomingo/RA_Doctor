@@ -7,27 +7,30 @@ public class Diagnosis {
      private int patient_id;
      private int tender;
      private int swollen;
+     private double ega;
+     private double pga;
      private double esr;
      private double crp;
      private double rf;
-     private double gcsf;
      private boolean has_record;
+     private String ccp;
      private String date;
      public Diagnosis(){
           has_record = false;
      }
 
-     public Diagnosis(int patient_id, int tender, int swollen, double esr, double crp, double rf, double gcsf, String date){
+     public Diagnosis(int patient_id, int tender, int swollen, double esr, double crp, double rf, double ega, double pga, String ccp, String date){
           this.patient_id = patient_id;
           this.tender = tender;
           this.swollen = swollen;
           this.esr = esr;
           this.crp = crp;
           this.rf = rf;
-          this.gcsf = gcsf;
+          this.ega = ega;
+          this.pga = pga;
+          this.ccp = ccp;
           this.date = date;
           this.has_record = true;
-
      }
 
      public int getPatient_id(){
@@ -48,9 +51,9 @@ public class Diagnosis {
      public double getRf(){
           return rf;
      }
-     public double getGcsf(){
-          return gcsf;
-     }
+     public double getEga(){ return ega;}
+     public double getPga(){ return pga;}
+     public String getCcp(){return ccp;}
      public String getDate() { return date;}
      public boolean isHas_record(){
           return has_record;

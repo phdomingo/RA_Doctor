@@ -1,3 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="drugsAdmissionSpinner_Array">
+        <item>Oral</item>
+        <item>IV</item>
+        <item>IM</item>
+    </string-array>
+
+    <string-array name="mtxSpinner_array">
+        <item>2.5 mg</item>
+        <item>5.0 mg</item>
+        <item>7.5 mg</item>
+        <item>10.0 mg</item>
+        <item>12.5 mg</item>
+        <item>15.0 mg</item>
+        <item>17.5 mg</item>
+        <item>20.0 mg</item>
+        <item>22.5 mg</item>
+        <item>25.0 mg</item>
+    </string-array>
+
+    <string-array name="azaSpinner_array">
+        <item>50 mg</item>
+        <item>100 mg</item>
+    </string-array>
+
+    <string-array name="hcqsSpinner_array">
+        <item>200 mg</item>
+    </string-array>
+
+    <string-array name="steroids1Spinner_array">
+        <item>5 mg</item>
+        <item>10 mg</item>
+        <item>15 mg</item>
+        <item>20 mg</item>
+    </string-array>
+
+    <string-array name="steroids2Spinner_array">
+        <item>4 mg</item>
+        <item>8 mg</item>
+        <item>12 mg</item>
+        <item>16 mg</item>
+    </string-array>
+
 </resources>

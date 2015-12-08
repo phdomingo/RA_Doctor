@@ -1,3 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="inflixSpinner_array">
+        <item>100 mg</item>
+        <item>200 mg</item>
+    </string-array>
+    <string-array name="rituxSpinner_array">
+        <item>500 mg</item>
+        <item>1000 mg</item>
+    </string-array>
+    <string-array name="tociliSpinner_array">
+        <item>200 mg</item>
+        <item>400 mg</item>
+    </string-array>
+    <string-array name="etanerSpinner_array">
+        <item>25 mg</item>
+    </string-array>
 </resources>

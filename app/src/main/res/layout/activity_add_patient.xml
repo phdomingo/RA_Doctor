@@ -8,125 +8,261 @@
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context="com.example.patrick.radoctor.AddPatient_Activity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout4">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="@string/title_activity_add_patient"
-            android:id="@+id/addPatientTextView"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/patient_info_name"
-            android:id="@+id/textView3"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/nameEditText"
-            android:editable="true"
-            android:enabled="true"
-            android:inputType="text"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/patient_info_age"
-            android:id="@+id/textView4"/>
-
-        <EditText
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/ageEditText"
-            android:editable="true"
-            android:enabled="true"
-            android:inputType = "number"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/patient_info_sex"
-            android:id="@+id/textView5"/>
-
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/sexSpinner"
-            android:spinnerMode="dialog"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/patient_info_age_of_diagnosis"
-            android:id="@+id/textView6"/>
-
-        <EditText
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/aodEditText"
-            android:inputType = "number"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/patient_info_age_of_onset"
-            android:id="@+id/textView7"/>
-
-        <EditText
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/aooEditText"
-            android:inputType = "number"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_add_photo"
-            android:id="@+id/textView15"/>
-
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/addImage"
-            android:contentDescription="Picture"
-            android:onClick="onButtonClicked"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"/>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        android:clickable="false"
+        android:fillViewport="true">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout4">
 
-            <Button
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/title_activity_add_patient"
+                android:id="@+id/addPatientTextView"
+                android:gravity="center"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_cancel"
-                android:id="@+id/cancelButtonAddPatient"
-                android:layout_marginLeft="50dp"
-                android:onClick="onButtonClicked"/>
+                android:text="@string/patient_info_name"
+                android:id="@+id/textView3"
+                android:textColor="#0091D9"/>
 
-            <Button
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nameEditText"
+                android:editable="true"
+                android:enabled="true"
+                android:inputType="text"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_save"
-                android:id="@+id/saveButtonAddPatient"
-                android:layout_marginLeft="50dp"
-                android:onClick="onButtonClicked"/>
+                android:text="@string/patient_info_age"
+                android:id="@+id/textView4"
+                android:textColor="#0091D9"/>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/ageEditText"
+                android:editable="true"
+                android:enabled="true"
+                android:inputType = "number"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_info_sex"
+                android:id="@+id/textView5"
+                android:textColor="#0091D9"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sexSpinner"
+                android:spinnerMode="dialog"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_info_age_of_diagnosis"
+                android:id="@+id/textView6"
+                android:textColor="#0091D9"/>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/aodEditText"
+                android:inputType = "number"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_info_age_of_onset"
+                android:id="@+id/textView7"
+                android:textColor="#0091D9"/>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/aooEditText"
+                android:inputType = "number"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rheumatoid Arthritis Criteria (Current Score = 0)"
+                    android:textSize="15sp"
+                    android:textColor="#000075"
+                    android:paddingTop="10dp"
+                    android:id="@+id/RACriteriaLabel"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Joints Evaluation"
+                    android:textColor="#0091D9"
+                    />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerJoints"
+                    android:spinnerMode="dialog"
+                    android:textSize="15sp"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Serology"
+                    android:textColor="#0091D9"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Rheumatoid Factor (RF)"
+                    />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerRF"
+                    android:spinnerMode="dialog"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Anti–citrullinated protein antibodies (ACPA)"
+                    />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerAcpa"
+                    android:spinnerMode="dialog"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Duration"
+                    android:textColor="#0091D9"
+                    />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerDuration"
+                    android:spinnerMode="dialog"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Acute phase reactants"
+                    android:textColor="#0091D9"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="ESR"
+                    />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerEsr"
+                    android:spinnerMode="dialog"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="CRP"
+                    />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerCrp"
+                    android:spinnerMode="dialog"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_cancel"
+                    android:id="@+id/cancelButtonAddPatient"
+                    android:layout_marginLeft="50dp"
+                    android:onClick="onButtonClicked"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_save"
+                    android:id="@+id/saveButtonAddPatient"
+                    android:layout_marginLeft="50dp"
+                    android:onClick="onButtonClicked"/>
+            </LinearLayout>
+
+            <!--
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_add_photo"
+                    android:id="@+id/textView15"/>
+
+
+               <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/addImage"
+                    android:contentDescription="Picture"
+                    android:onClick="onButtonClicked"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"/>
+
+
+
+            -->
         </LinearLayout>
-
-    </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>

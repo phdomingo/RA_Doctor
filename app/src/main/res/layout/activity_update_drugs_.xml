@@ -13,7 +13,6 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/drugsScroll"
         android:scrollbars="none"
         android:clickable="false"
         android:fillViewport="true">
@@ -43,7 +42,8 @@
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/spinnerMtx"/>
+                    android:id="@+id/spinnerDrugAdmission"
+                    android:spinnerMode="dialog"/>
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -57,60 +57,15 @@
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"/>
 
-                    <EditText
+                    <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/mtxDose"
-                        android:hint="(5 - 20)"
-                        android:textSize="20sp"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="(mg)"
-                        android:textSize="10sp"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"/>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Frequency:"
-                    android:textSize="12sp"/>
-
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinnerMtxFrequency"/>
-
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Valid until:"
-                        android:textSize="12sp"
-                        android:paddingEnd="10dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@android:style/Widget.DeviceDefault.Light.Spinner"
-                        android:id="@+id/mtxDate"
-                        android:textSize="20sp"
-                        android:paddingEnd="10dp"/>
+                        android:id="@+id/spinnerDrugDose"
+                        android:spinnerMode="dialog"/>
 
 
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -123,21 +78,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/button_cancel"
-                        android:id="@+id/button2"/>
+                        android:id="@+id/buttonDrugsCancel"
+                        android:onClick="onClick"/>
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/button_save"
-                        android:id="@+id/button3"/>
+                        android:id="@+id/buttonDrugsSave"
+                        android:onClick="onClick"/>
                 </LinearLayout>
 
 
             </LinearLayout>
-
-
-
-
 
         </ScrollView>
 </RelativeLayout>

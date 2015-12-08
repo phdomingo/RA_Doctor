@@ -1,9 +1,11 @@
 package com.example.patrick.radoctor;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class PatientStatistics_Activity extends ActionBarActivity {
@@ -35,5 +37,19 @@ public class PatientStatistics_Activity extends ActionBarActivity {
           }
 
           return super.onOptionsItemSelected(item);
+     }
+     public void onClick(View view){
+          switch(view.getId()){
+               case R.id.patientDemographics:{
+                    Intent intent = new Intent(PatientStatistics_Activity.this,PatientDemographics_Activity.class);
+                    startActivity(intent);
+                    break;
+               }
+               case R.id.patientDiagnosisSummary:{
+                    Intent intent = new Intent (PatientStatistics_Activity.this, PatientDiagnosisStatistics.class);
+                    startActivity(intent);
+                    break;
+               }
+          }
      }
 }

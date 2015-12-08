@@ -18,29 +18,29 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+       <!--     <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_activity_das28"
+                android:text= "DAS28 - ESR"
                 android:id="@+id/textView8"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:singleLine="false"
                 android:textSize="20sp"
                 android:textColor="#000075"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"/> -->
 
             <com.jjoe64.graphview.GraphView
                 android:layout_width="match_parent"
                 android:layout_height="200dip"
                 android:id="@+id/graph"
-
+                android:title="DAS28 - ESR"
                 />
 
-            <TextView
+        <!--    <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_activity_csdai"
+                android:text="DAS28 - CRP"
                 android:id="@+id/textView9"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -48,17 +48,18 @@
                 android:textSize="20sp"
                 android:textColor="#000075"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"/> -->
 
             <com.jjoe64.graphview.GraphView
                 android:layout_width="match_parent"
                 android:layout_height="200dip"
-                android:id="@+id/graph2" />
+                android:id="@+id/graph2"
+                android:title = "DAS28 - CRPS"/>
 
-            <TextView
+       <!--     <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/label_esr2"
+                android:text="SDAI"
                 android:id="@+id/textView10"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -66,17 +67,18 @@
                 android:textSize="20sp"
                 android:textColor="#000075"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"/> -->
 
             <com.jjoe64.graphview.GraphView
                 android:layout_width="match_parent"
                 android:layout_height="200dip"
-                android:id="@+id/graph3" />
+                android:id="@+id/graph3"
+                android:title="SDAI"/>
 
-            <TextView
+          <!--  <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/label_crp2"
+                android:text="CDAI"
                 android:id="@+id/textView11"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -84,12 +86,14 @@
                 android:textSize="20sp"
                 android:textColor="#000075"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"/> -->
 
             <com.jjoe64.graphview.GraphView
                 android:layout_width="match_parent"
                 android:layout_height="200dip"
-                android:id="@+id/graph4" />
+                android:id="@+id/graph4"
+                android:title="CDAI"/>
+
         </LinearLayout>
     </ScrollView>
 

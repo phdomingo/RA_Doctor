@@ -7,179 +7,209 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context="com.example.patrick.radoctor.DiagnosisUpdate_Activity">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_tender"
-            android:id="@+id/labelTender2"
-            android:paddingTop="10dp"
-            android:textColor="#000075"
-            android:textSize="15sp"/>
-
-
-        <EditText
-            android:layout_width="60sp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/diagnosis_tenderEditText"
-            android:maxLength="2"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_swollen"
-            android:id="@+id/labelSwollen2"
-            android:textColor="#000075"
-            android:textSize="15sp"/>
-
-
-        <EditText
-            android:layout_width="60sp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:id="@+id/diagnosis_swollenEditText"
-            android:inputType="number"
-            android:maxLength="2"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_esr"
-            android:id="@+id/labelESR2"
-            android:textColor="#000075"
-            android:textSize="15sp"/>
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:layout_width="60sp"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/diagnosis_EsrEditText"/>
+            android:layout_height="fill_parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/unit_mmhr"
-                android:id="@+id/textView9"/>
-        </LinearLayout>
+                android:text="@string/label_tender"
+                android:paddingTop="10dp"
+                android:textColor="#000075"
+                android:textSize="15sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_cpr"
-            android:id="@+id/labelCPR2"
-            android:textColor="#000075"
-            android:textSize="15sp"/>
-
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
 
             <EditText
-                android:layout_width="60sp"
+                android:layout_width="100sp"
+                android:hint="(0 - 28)"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/diagnosis_crpEditText"/>
+                android:id="@+id/diagnosis_tenderEditText"
+                android:maxLength="2"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/unit_mgl"
-                android:id="@+id/textView10"/>
-        </LinearLayout>
+                android:text="@string/label_swollen"
+                android:textColor="#000075"
+                android:textSize="15sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_rf"
-            android:id="@+id/labelRF2"
-            android:textColor="#000075"
-            android:textSize="15sp"/>
-
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
 
             <EditText
-                android:layout_width="60sp"
+                android:layout_width="100sp"
+                android:hint="(0 - 28)"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/diagnosis_swollenEditText"
+                android:inputType="number"
+                android:maxLength="2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_esr"
+                android:id="@+id/labelESR2"
+                android:textColor="#000075"
+                android:textSize="15sp"/>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="100sp"
+                    android:hint="(0 - 150)"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/diagnosis_EsrEditText"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unit_mmhr"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_crp"
+                android:textColor="#000075"
+                android:textSize="15sp"/>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="100sp"
+                    android:hint="(0 - 150)"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/diagnosis_crpEditText"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unit_mgl"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_rf"
+                android:textColor="#000075"
+                android:textSize="15sp"/>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/diagnosis_RfEditText"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unit_uml"
+                    android:id="@+id/textView11"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_pga"
+                android:textColor="#000075"
+                android:textSize="15sp"/>
+
+
+            <EditText
+                android:layout_width="100sp"
+                android:hint="(0 - 10)"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
-                android:id="@+id/diagnosis_RfEditText"/>
+                android:id="@+id/diagnosis_pgaEditText"/>
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/unit_uml"
-                android:id="@+id/textView11"/>
-        </LinearLayout>
+                android:text="@string/label_ega"
+                android:textColor="#000075"
+                android:textSize="15sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_gcsf"
-            android:id="@+id/labelGCSF2"
-            android:textColor="#000075"
-            android:textSize="15sp"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
 
             <EditText
-                android:layout_width="60sp"
+                android:layout_width="100sp"
+                android:hint="(0 - 10)"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
-                android:id="@+id/diagnosis_GcsfEditText"/>
+                android:id="@+id/diagnosis_egaEditText"/>
+
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/unit_pgml"
-                android:inputType="numberDecimal"
-                android:id="@+id/textView12"/>
-        </LinearLayout>
+                android:text="@string/label_ccp"
+                android:textColor="#000075"
+                android:textSize="15sp"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <Button
+            <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_save"
-                android:id="@+id/diagnosis_UpdateSaveButton"
-                android:onClick="onButtonClicked"/>
+                android:id="@+id/diagnosis_ccpSpinner"
+                android:spinnerMode="dialog"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button_cancel"
-                android:id="@+id/diagnosis_UpdateCancelButton"
-                android:onClick="onButtonClicked"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_cancel"
+                    android:id="@+id/diagnosis_UpdateCancelButton"
+                    android:layout_marginLeft="50dp"
+                    android:onClick="onButtonClicked"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_save"
+                    android:id="@+id/diagnosis_UpdateSaveButton"
+                    android:layout_marginLeft="50dp"
+                    android:onClick="onButtonClicked"/>
+            </LinearLayout>
+
         </LinearLayout>
 
+    </ScrollView>
 
-    </LinearLayout>
 </RelativeLayout>

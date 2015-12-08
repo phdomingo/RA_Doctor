@@ -1,8 +1,11 @@
 package com.example.patrick.radoctor;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,67 +16,100 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
 
 public class UpdateDrugs_Activity extends ActionBarActivity {
-     Spinner mtxAdmission;
-     Spinner mtxFrequency;
-     static TextView mtxDate;
+     Spinner drugAdmission;
+     Spinner drugDose;
+     TextView drugName;
+
      int patient_id;
-     static int myear;
-     static int mmonth;
-     static int mday;
+     int drugNumber;
+     double dose;
+
+     String labelMtx,labelAza,labelHCQS,labelSterPred,labelSterMeth,admission;
+
+     DBHelper db;
      @Override
      protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_update_drugs_);
-          mtxAdmission = (Spinner)findViewById(R.id.spinnerMtx);
-          mtxFrequency = (Spinner)findViewById(R.id.spinnerMtxFrequency);
-          mtxDate = (TextView)findViewById(R.id.mtxDate);
+          db = new DBHelper(this);
+          drugAdmission = (Spinner)findViewById(R.id.spinnerDrugAdmission);
+          drugDose = (Spinner)findViewById(R.id.spinnerDrugDose);
+          drugName = (TextView)findViewById(R.id.updateDrugLabel);
+          patient_id = getIntent().getExtras().getInt("patient_id");
+          drugNumber = getIntent().getExtras().getInt("drugs");
+          labelMtx = getString(R.string.label_mtx);
+          labelAza = getString(R.string.label_aza);
+          labelHCQS = getString(R.string.label_hcqs);
+          labelSterPred = getString(R.string.label_pred);
+          labelSterMeth = getString(R.string.label_methylpred);
+          setDrugTitle(drugNumber);
           addItemsOnSpinner1();
-          addItemsOnSpinner2();
-          final Calendar c = Calendar.getInstance();
-          myear = c.get(Calendar.YEAR);
-          mmonth = c.get(Calendar.MONTH);
-          mday = c.get(Calendar.DAY_OF_MONTH);
-          updateDisplay();
-          mtxDate.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   DialogFragment df = new DatePickerFragment();
-                   df.show(getFragmentManager(),"datePicker");
+          addItemsOnSpinner2(drugNumber);
+     }
+
+     private void setDrugTitle(int drugNumber){
+          switch(drugNumber){
+               case 1:{
+                    drugName.setText(labelMtx);
+                    break;
                }
-          });
+               case 2:{
+                    drugName.setText(labelAza);
+                    break;
+               }
+               case 3:{
+                    drugName.setText(labelHCQS);
+                    break;
+               }
+               case 4:{
+                    drugName.setText("Steroids - " + labelSterPred);
+                    break;
+               }
+               case 5:{
+                    drugName.setText("Steroids - " + labelSterMeth);
+                    break;
+               }
 
-     }
-     public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
-          @Override
-          public Dialog onCreateDialog(Bundle savedInstancesState){
-               return new DatePickerDialog(getActivity(), this, myear, mmonth, mday);
           }
-          public void onDateSet(DatePicker view, int year, int month, int day) {
-               myear = year;
-               mmonth = month;
-               mday = day;
-               updateDisplay();
-          }
      }
-
-     private static void updateDisplay() {
-          mtxDate.setText(mmonth+1 + "/"+mday+"/"+myear);
-     }
-
      private void addItemsOnSpinner1(){
           ArrayAdapter<CharSequence> adapter1 =  ArrayAdapter.createFromResource(this,R.array.drugsAdmissionSpinner_Array,android.R.layout.simple_spinner_item);
           adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-          mtxAdmission.setAdapter(adapter1);
+          drugAdmission.setAdapter(adapter1);
      }
-     private void addItemsOnSpinner2(){
-          ArrayAdapter<CharSequence> adapter1 =  ArrayAdapter.createFromResource(this,R.array.drugsFrequencySpinner_Array,android.R.layout.simple_spinner_item);
-          adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-          mtxFrequency.setAdapter(adapter1);
+     private void addItemsOnSpinner2(int drugNumber){
+          ArrayAdapter<CharSequence> adapter1;
+          switch(drugNumber){
+               case 1:{
+                    adapter1 =  ArrayAdapter.createFromResource(this,R.array.mtxSpinner_array,android.R.layout.simple_spinner_item);
+                    break;
+               }
+               case 2:{
+                    adapter1 =  ArrayAdapter.createFromResource(this,R.array.azaSpinner_array,android.R.layout.simple_spinner_item);
+                    break;
+               }
+               case 3: {
+                    adapter1 = ArrayAdapter.createFromResource(this, R.array.hcqsSpinner_array, android.R.layout.simple_spinner_item);
+                    break;
+               }
+               case 4:{
+                    adapter1 = ArrayAdapter.createFromResource(this, R.array.steroids1Spinner_array, android.R.layout.simple_spinner_item);
+                    break;
+               }
+               default:{
+                    adapter1 =  ArrayAdapter.createFromResource(this, R.array.steroids2Spinner_array, android.R.layout.simple_spinner_item);
+               }
+
+          }
+          drugDose.setAdapter(adapter1);
      }
 
      @Override
@@ -98,5 +134,50 @@ public class UpdateDrugs_Activity extends ActionBarActivity {
           return super.onOptionsItemSelected(item);
      }
 
+     public void onClick(View view){
+          switch(view.getId()){
+               case R.id.buttonDrugsCancel:{
+                    Intent intent = new Intent(UpdateDrugs_Activity.this, Drugs_Activity.class);
+                    intent.putExtra("patient_id",patient_id);
+                    startActivity(intent);
+                    break;
+               }
+               case R.id.buttonDrugsSave:{
+                    openPopup();
+                    break;
+               }
+          }
+     }
 
+     public void openPopup(){
+          final AlertDialog.Builder popupbd = new AlertDialog.Builder(this);
+          popupbd.setTitle("Save drug update?");
+          popupbd.setCancelable(true);
+          admission = (String) drugAdmission.getSelectedItem();
+          String temp = (String) drugDose.getSelectedItem();
+          temp = temp.substring(0,temp.length()-3);
+          dose = Double.parseDouble(temp);
+
+          popupbd.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+               public void onClick(DialogInterface dialog, int data) {
+               }
+          });
+          popupbd.setPositiveButton("Save",new DialogInterface.OnClickListener() {
+               public void onClick(DialogInterface dialog, int data) {
+                    try{
+                         if(db.insertPatientDrugs(patient_id,drugNumber,admission,dose)){
+                              Toast.makeText(getApplicationContext(), "Successfully Saved!", Toast.LENGTH_SHORT).show();
+                         }
+                         Intent intent = new Intent(UpdateDrugs_Activity.this,Drugs_Activity.class);
+                         intent.putExtra("patient_id",patient_id);
+                         startActivity(intent);
+                    }catch(Exception e){
+                         System.out.println(e.toString());
+                         Toast.makeText(getApplicationContext(), "Something Bad Happened =( Try saving again", Toast.LENGTH_SHORT).show();
+                    }
+               }
+          });
+          AlertDialog popup = popupbd.create();
+          popup.show();
+     }
 }
