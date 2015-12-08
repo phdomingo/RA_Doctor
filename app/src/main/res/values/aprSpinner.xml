@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-<string-array name="aprSpinner_array">
-    <item>CRP and ESR both normal</item>
-    <item>Abnormal CRP or ESR</item>
-</string-array>
-</resources>
